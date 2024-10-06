@@ -1,1 +1,1212 @@
-Under construction, please check back it later. 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>DMDSpeech Demo</title>
+    <link href="../statics/bootstrap-5.2.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../statics/my.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+		<div style="text-align: center">
+			<h1>DMDSpeech:</h1>
+			<h3 style="text-align: center"> Distilled Diffusion Model Surpassing in Zero-shot Speech Synthesis via Direct Metric Optimization<br>
+			</h3><br>
+		</div>
+          <h3>Abstract</h3>
+          <p class="lead">Diffusion models have demonstrated significant potential in speech synthesis tasks, including text-to-speech (TTS) and voice cloning. However, their iterative denoising processes are inefficient and hinder the application of end-to-end optimization with perceptual metrics. In this paper, we propose a novel method of distilling TTS diffusion models with direct end-to-end evaluation metric optimization, achieving state-of-the-art performance. By incorporating Connectionist Temporal Classification (CTC) loss and Speaker Verification (SV) loss, our approach optimizes perceptual evaluation metrics, leading to notable improvements in word error rate and speaker similarity. Our experiments show that DMDSpeech consistently surpasses prior state-of-the-art models in both naturalness and speaker similarity while being significantly faster. Moreover, our synthetic speech has a higher level of voice similarity to the prompt than the ground truth in both human evaluation and objective speaker similarity metric. This work highlights the potential of direct metric optimization in speech synthesis, allowing models to better align with human auditory preferences.</p>
+        </div>
+		
+		<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+
+		  <h2 style="text-align: center">Zero-Shot TTS (LibriSpeech)</h2>
+		  <br>
+		  <p class="lead">
+			This section contain audio samples from our models and all baseline models we compared in our paper on the LibriSpeech <i>test-clean</i> dataset. Samples from other models are taken from <a href="https://styletts-zs.github.io/">StyleTTS-ZS demo page</a>.
+		  </p>
+		  <div class="table-responsive" style="overflow-x: scroll">
+			<table class="table table-sm">
+			  <tbody>
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">Text</th>
+				  <td>
+					<p>Their piety would be like their names, like their faces, like their clothes, and it was idle for him to tell himself that their humble and contrite hearts it might be paid a far-richer tribute of devotion than his had ever been. A gift tenfold more acceptable than his elaborate adoration.</p>
+				  </td>
+				  <td>
+					<p>The air and the earth are curiously mated and intermingled as if the one were the breath of the other.</p>
+				  </td>
+				  <td>
+					<p>His death in this conjuncture was a public misfortune.</p>
+				  </td>
+				  <td>
+					<p>Indeed, there were only one or two strangers who could be admitted among the sisters without producing the same result.</p>
+				  </td>
+				  <td>
+					<p>It is this that is of interest to theory of knowledge.</p>
+				  </td>
+				  <td>
+					<p>I had always known him to be restless in his manner, but on this particular occasion he was in such a state of uncontrollable agitation that it was clear something very unusual had occurred.</p>
+				  </td>
+				  <td>
+					<p>For a few miles, she followed the line hitherto presumably occupied by the coast of Algeria, but no land appeared to the south.</p>
+				  </td>
+				  <td>
+					<p>For if he's anywhere on the farm, we can send for him in a minute.</p>
+				  </td>
+				</tr>
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">Prompt</th>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/prompt/6.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/prompt/7.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/prompt/3.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/prompt/5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/prompt/1.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/prompt/2.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/prompt/4.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/prompt/8.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">DMDSpeech (Ours)</th>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/dmdspeech/6.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/dmdspeech/7.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/dmdspeech/3.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/dmdspeech/5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/dmdspeech/1.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/dmdspeech/2.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/dmdspeech/4.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/dmdspeech/8.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">NaturalSpeech 3</th>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/ns3/6.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/ns3/7.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/ns3/3.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/ns3/5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/ns3/1.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/ns3/2.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/ns3/4.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/ns3/8.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+				
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">StyleTTS-ZS</th>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/styletts/6.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/styletts/7.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/styletts/3.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/styletts/5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/styletts/1.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/styletts/2.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/styletts/4.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/styletts/8.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">DiTTo-TTS</th>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/dittotts/6.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/dittotts/7.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/dittotts/3.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/dittotts/5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/dittotts/1.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/dittotts/2.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/dittotts/4.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/dittotts/8.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+				
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">CLaM-TTS</th>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/clamtts/6.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/clamtts/7.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/clamtts/3.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/clamtts/5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/clamtts/1.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/clamtts/2.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/clamtts/4.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/clamtts/8.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">VoiceCraft</th>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/voicecraft/6.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/voicecraft/7.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/voicecraft/3.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/voicecraft/5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/voicecraft/1.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/voicecraft/2.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/voicecraft/4.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/voicecraft/8.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">XTTS</th>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/xtts/6.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/xtts/7.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/xtts/3.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/xtts/5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/xtts/1.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/xtts/2.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/xtts/4.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/xtts/8.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">Ground Truth</th>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/gt/6.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/gt/7.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/gt/3.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/gt/5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/gt/1.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/gt/2.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/gt/4.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/libri/gt/8.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		  <p class="small">* please scroll horizontally to see more samples (8 samples total).</p>
+		</div>
+
+		<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+		
+
+
+		  <h2 style="text-align: center">Comparison to Previous SOTA</h2>
+		  <br>
+		  <p class="lead">
+			This section contain samples sourced from other SOTA model demo page for a comparison with our model. For each model, we compare different aspects. All samples are downsampled to 16 kHz for fair comparison. <p style="font-weight:bold;"> Our model was only trained on LibriLight dataset and has not seen any of the prompt voice below</a>.
+		  </p>
+		  <hr style="border-top: 3px dashed #bbb;">
+		  <h4>Comparison to DiTTo-TTS (Voice Clone)</h4>
+		  <p>
+			We compare our model to DiTTo-TTS for cloning the voice of vairous celebreities and fictional characters. The samples of DiTTo-TTS, prompts, and texts are sourced from its <a href="https://ditto-tts.github.io/">official demo page</a>.
+		  </p>
+			<div class="table-responsive pt-3" tabindex="0">
+			<table class="table table-hover pt-2">
+				<thead>
+					<tr>
+					<th style="text-align: center">Character</th>
+					<th style="text-align: center">Prompt</th>
+					<th style="text-align: center">DMDSpeech</th>
+					<th style="text-align: center">DiTTo-TTS</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">SpongeBob</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/prompt/spongebob.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/dmdspeech/spongebob.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/dittotts/spongebob.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+ 					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Rick (Rick and Morty)</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/prompt/rick.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/dmdspeech/rick.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/dittotts/rick.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+ 					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Optimus Prime</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/prompt/optimusprime.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/dmdspeech/optimusprime.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/dittotts/optimusprime.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+ 					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Mark Zuckerberg</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/prompt/zuck.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/dmdspeech/zuck.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/dittotts/zuck.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+ 					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Sherlock (Benedict Cumberbatch)</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/prompt/sherlock.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/dmdspeech/sherlock.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/dittotts/sherlock.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+ 					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Rachel McAdams</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/prompt/rachel.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/dmdspeech/rachel.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/celeb/dittotts/rachel.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+
+
+				</tbody>
+			</table>
+			</div>
+			
+		  <hr style="border-top: 3px dashed #bbb;">
+		  <h4>Comparison to NaturalSpeech 3 and DiTTo-TTS (Emotions)</h4>
+		  <p>
+			We compare our model to NaturalSpeech 3 and DiTTo-TTS for emotional speech. The samples of NaturalSpeech 3, DiTTo-TTS, prompts, and texts are sourced from <a href="https://ditto-tts.github.io/">DiTTo-TTS demo page</a>. The text synthesized is "why fades the lotus of the water" from LibriSpeech test set.
+		  </p>
+		  
+			<div class="table-responsive pt-3" tabindex="0">
+			<table class="table table-hover pt-2">
+				<thead>
+					<tr>
+					<th style="text-align: center">Emotion</th>
+					<th style="text-align: center">Prompt</th>
+					<th style="text-align: center">DMDSpeech</th>
+					<th style="text-align: center">DiTTo-TTS</th>
+					<th style="text-align: center">NaturalSpeech 3</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Neutral</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/prompt/netural.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/dmdspeech/netural.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/dittotts/netural.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/ns3/netural.wav">Your browser does not support the audio element.</audio></td>
+
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Calm</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/prompt/calm.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/dmdspeech/calm.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/dittotts/calm.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/ns3/calm.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Sad</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/prompt/sad.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/dmdspeech/sad.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/dittotts/sad.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/ns3/sad.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Angry</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/prompt/angry.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/dmdspeech/angry.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/dittotts/angry.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/ns3/angry.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Happy</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/prompt/happy.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/dmdspeech/happy.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/dittotts/happy.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/ns3/happy.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Surprised</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/prompt/surprised.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/dmdspeech/surprised.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/dittotts/surprised.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/ravdess/ns3/surprised.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+					
+
+				</tbody>
+			</table>
+			</div>
+			
+		  <hr style="border-top: 3px dashed #bbb;">
+		  <h4>Comparison to Vall-E 2 (Continuation)</h4>
+		  <p>
+			We compare our model to Vall-E 2 for both cross-sentence synthesis and sentence continuation. Due to policy restriction, we were unable to obtain samples from the authors and conduct subjective evaluation in our study. The comparison here is for reference purpose only, and samples are taken from its <a href="https://www.microsoft.com/en-us/research/project/vall-e-x/vall-e-2/">official demo page</a>. All samples of Vall-E 2 are with GroupSize=1 as it is shown to have the best performance in the paper. 
+		  </p>
+		  
+			<div class="table-responsive pt-3" tabindex="0">
+			<table class="table table-hover pt-2">
+				<thead>
+					<tr>
+					<th style="text-align: center">Text</th>
+					<th style="text-align: center">Prompt (Prefix/Ref)</th>
+					<th style="text-align: center">DMDSpeech</th>
+					<th style="text-align: center">Vall-E 2</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">They moved thereafter cautiously about the hut, groping before and about them to find something to show that Warrenton had fulfilled his mission.</td>
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/prompt/809_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/prompt/809_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+						
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/dmdspeech/809_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/dmdspeech/809_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+						
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/valle2/809_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/valle2/809_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Number ten, fresh nelly is waiting on you, good night husband.</td>
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/prompt/1_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/prompt/1_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+						
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/dmdspeech/1_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/dmdspeech/1_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+						
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/valle2/1_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/valle2/1_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Instead of shoes, the old man wore boots with turnover tops and his blue coat had wide cuffs of gold braid.</td>
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/prompt/78_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/prompt/78_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+						
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/dmdspeech/78_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/dmdspeech/78_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+						
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/valle2/78_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/valle2/78_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+					</tr>
+					
+<!-- 					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Yea, his honourable worship is within. But he hath a godly minister or two with him, and likewise a leech.</td>
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/prompt/74_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/prompt/74_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+						
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/dmdspeech/74_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/dmdspeech/74_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+						
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/valle2/74_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="../samples/valle2/valle2/74_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+					</tr>
+					 -->
+				</tbody>
+			</table>
+			</div>
+			
+		  <hr style="border-top: 3px dashed #bbb;">
+		  <h4>Comparison to StyleTTS 2 (Long-Form Generation)</h4>
+		  <p>
+			We compare our model to StyleTTS 2 for long-form generation. Our model with only 7 second of prompt speech can perform similarly well as SOTA single-speaker model trained on this particular speaker with 24 hours of data. The sample is taken from its <a href="https://styletts2.github.io/">official demo page</a>. 
+		  </p>
+		  
+			<div class="table-responsive pt-3" tabindex="0">
+			<table class="table table-hover pt-2">
+				<thead>
+					<tr>
+					<th style="text-align: center">Prompt for DMDSpeech</th>
+					<th style="text-align: center">DMDSpeech</th>
+					<th style="text-align: center">StyleTTS 2</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/styletts2/prompt_LJ.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/styletts2/dmdspeech.mp3">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="../samples/styletts2/styletts.mp3">Your browser does not support the audio element.</audio></td>
+					</tr
+				</tbody>
+			</table>
+			</div>
+		  
+		</div>
+		
+      </div>
+
+		<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+
+		  <h2 style="text-align: center">In-the-Wild Samples</h2>
+		  <br>
+		  <p class="lead">
+			This section contain samples sourced in the wild to show our model has great robustness and generalizability to various cases. <p style="font-weight:bold;"> Our model was only trained on LibriLight dataset and has not seen any of the prompt voice or language below</a>.
+		  </p>
+			<div class="table-responsive pt-3" tabindex="0">
+			<table class="table table-hover pt-2">
+				<thead>
+					<tr>
+					<th style="text-align: center">Cases</th>
+					<th style="text-align: center">Prompt</th>
+					<th style="text-align: center">Text</th>
+					<th style="text-align: center">DMDSpeech</th>
+					</tr>
+				</thead>
+				<tbody>
+				
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px"><div style="font-weight:bold;">Noisy Recording</div>(Sports Commentator)</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/wild/prompt/football.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">And here is our DMD Speech, and, oh my god! It can generalize to noisy commentating voice too, what a surprise! </td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/wild/dmdspeech/football.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px"><div style="font-weight:bold;">Screaming Voice</div>(Death Metal Growl)</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/wild/prompt/metal.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">This is DMD. It gets your voice deep. Why can it do metal growl? Why, can it do metal growl?</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/wild/dmdspeech/metal.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px"><div style="font-weight:bold;">Processed Voice</div>(StarCraft Protoss Advisor)</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/wild/prompt/protoss.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Executor, your model requires more distillation. Distillation complete. In taro DMD!</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/wild/dmdspeech/protoss.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px"><div style="font-weight:bold;">Non-English</div>(Speech-to-Speech Translation)</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/wild/prompt/korean.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">No. You only need to do it for 3 hours a day from Monday to Friday.</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="../samples/wild/dmdspeech/korean.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+
+				</tbody>
+			</table>
+			</div>
+			
+		</div>
+    
+		<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+
+		  <h2 style="text-align: center">Ablation Study</h2>
+		  <br>
+		  <p class="lead">
+			This section contain audio samples for our ablation study. The ablation of each model is as follows:
+			<ul class="lead">
+				<li><b>DMDSpeech (N=4)</b>: Our proposed model, DMDSpeech with 4 steps of sampling. </li>
+				<li><b>Teacher (N=128)</b>: The teacher diffusion model with 128 steps of sampling. </li>
+				<li><b>DMD 2 Only (N=1)</b>: The model trained with DMD 2 only with 1 step of sampling. </li>
+				<li><b>DMD 2 Only (N=4)</b>: The model trained with DMD 2 only with 4 steps of sampling. </li>
+				<li><b>SV loss Only</b>: The model trained with DMD 2 with 4 steps of sampling plus SV loss (i.e., DMDSpeech without CTC loss). </li>
+				<li><b>CTC loss Only</b>: The model trained with DMD 2 with 4 steps of sampling plus CTC loss (i.e., DMDSpeech without SV loss). </li>
+				<li><b>Batch size 16</b>: DMDSpeech trained with a batch size of 16 instead of 96. </li>
+
+			</ul>
+			
+		  </p>
+		  <div class="table-responsive" style="overflow-x: scroll">
+			<table class="table table-sm">
+			  <tbody>
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">Text</th>
+				  <td>
+					<p>Kathleen waved the torch to and fro as she recited some beautiful lines written for some such purpose as that which called them together to night.</p>
+				  </td>
+				  <td>
+					<p>Nine thousand years have elapsed since she founded yours, and eight thousand since she founded ours, as our annals record.</p>
+				  </td>
+				  <td>
+					<p>The fact that a man can recite a poem does not show that he remembers any previous occasion on which he has recited or read it.</p>
+				  </td>
+				  <td>
+					<p>See that your lives be in nothing worse than a boy's climbing for his entangled kite.</p>
+				  </td>
+				  <td>
+					<p>It is evident, therefore, that the present trend of the development is in the direction of heightening the utility of conspicuous consumption as compared with leisure.</p>
+				  </td>
+				  <td>
+					<p>Horse sense a degree of wisdom that keeps one from betting on the races.</p>
+				  </td>
+				  <td>
+					<p>And though I have grown serene and strong since then, I think that God has willed a still renewable fear.</p>
+				  </td>
+				  <td>
+					<p>Cried the young ladies, and they quickly put out the fire.</p>
+				  </td>
+				</tr>
+				
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">Prompt</th>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/prompt/1.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/prompt/2.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/prompt/3.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/prompt/4.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/prompt/5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/prompt/6.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/prompt/7.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/prompt/8.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">DMDSpeech</th>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmdspeech/1.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmdspeech/2.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmdspeech/3.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmdspeech/4.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmdspeech/5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmdspeech/6.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmdspeech/7.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmdspeech/8.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+				
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">Teacher (N=128)</th>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/teacher/1.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/teacher/2.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/teacher/3.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/teacher/4.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/teacher/5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/teacher/6.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/teacher/7.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/teacher/8.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+				
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">DMD 2 Only (N=1)</th>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmd_n1/1.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmd_n1/2.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmd_n1/3.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmd_n1/4.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmd_n1/5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmd_n1/6.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmd_n1/7.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmd_n1/8.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+				
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">DMD 2 Only (N=4)</th>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmd_n4/1.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmd_n4/2.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmd_n4/3.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmd_n4/4.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmd_n4/5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmd_n4/6.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmd_n4/7.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/dmd_n4/8.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+				
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">SV loss Only</th>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/sv/1.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/sv/2.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/sv/3.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/sv/4.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/sv/5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/sv/6.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/sv/7.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/sv/8.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+				
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">CTC loss Only</th>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/ctc/1.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/ctc/2.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/ctc/3.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/ctc/4.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/ctc/5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/ctc/6.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/ctc/7.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/ctc/8.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+				
+				<tr>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">Batch zize 16</th>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/bs16/1.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/bs16/2.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/bs16/3.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/bs16/4.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/bs16/5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/bs16/6.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/bs16/7.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td>
+					<audio controls="" preload="none" style="width: 240px">
+					  <source src="../samples/ab/bs16/8.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+				
+			  </tbody>
+			</table>
+		  </div>
+		  <p class="small">* please scroll horizontally to see more samples (8 samples total).</p>
+		</div>
+
+	</div>
+  
+    <script src="../statics/jquery/jquery-3.7.1.slim.min.js"></script>
+    <script src="../statics/bootstrap-5.2.3-dist/bootstrap.min.js"></script>
+  </body>
+  <script>
+    $(function(){
+        $("audio").on("play", function() {
+            $("audio").not(this).each(function(index, audio) {
+                audio.pause();
+                audio.currentTime = 0;
+            });
+        });
+    });
+    </script>
+</html>
