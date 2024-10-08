@@ -20,7 +20,19 @@
           <h3>Abstract</h3>
           <p class="lead">Diffusion models have demonstrated significant potential in speech synthesis tasks, including text-to-speech (TTS) and voice cloning. However, their iterative denoising processes are inefficient and hinder the application of end-to-end optimization with perceptual metrics. In this paper, we propose a novel method of distilling TTS diffusion models with direct end-to-end evaluation metric optimization, achieving state-of-the-art performance. By incorporating Connectionist Temporal Classification (CTC) loss and Speaker Verification (SV) loss, our approach optimizes perceptual evaluation metrics, leading to notable improvements in word error rate and speaker similarity. Our experiments show that DMDSpeech consistently surpasses prior state-of-the-art models in both naturalness and speaker similarity while being significantly faster. Moreover, our synthetic speech has a higher level of voice similarity to the prompt than the ground truth in both human evaluation and objective speaker similarity metric. This work highlights the potential of direct metric optimization in speech synthesis, allowing models to better align with human auditory preferences.</p>
         </div>
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+    <h2 id="model-overview" style="text-align: center;">Model Overview</h2>
+    <div>
+      <p><br></p>
+      <p style="text-align: center; margin-left: 5%;">
+        <img src="overview" width="750" class="img-fluid">
+      </p>
+      <p><br></p>
+    </div>
+    <p>
+    The framework consists of inference and three main components for training: (1) <b>Inference</b> (upper left): A few-step distilled generator synthesizes speech directly from noise, conditioned on the text and speaker prompt (red arrow). (2) <b>Distribution Matching Distillation</b> (upper right): Gradient computation for DMD loss where the student score model matches the teacher score model to align the distribution of student generator with the teacher distribution (purple arrow). (3) <b>Multi-Modal Adversarial Training</b> (lower right): The discriminator uses stacked features from the student score model to distinguish between real and synthesized noisy latents conditioned on both text and prompt (yellow arrows). (4) <b>Direct Metric Optimization</b> (lower left): Direct metric optimization for word error rate (WER) via CTC loss (pink arrow) and speaker embedding cosine similarity (SIM) via SV loss (blue arrow).    </p>
 
+  </div>
 		<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 
 		  <h2 style="text-align: center">In-the-Wild Samples</h2>
