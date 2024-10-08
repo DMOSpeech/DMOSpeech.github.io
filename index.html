@@ -20,7 +20,60 @@
           <h3>Abstract</h3>
           <p class="lead">Diffusion models have demonstrated significant potential in speech synthesis tasks, including text-to-speech (TTS) and voice cloning. However, their iterative denoising processes are inefficient and hinder the application of end-to-end optimization with perceptual metrics. In this paper, we propose a novel method of distilling TTS diffusion models with direct end-to-end evaluation metric optimization, achieving state-of-the-art performance. By incorporating Connectionist Temporal Classification (CTC) loss and Speaker Verification (SV) loss, our approach optimizes perceptual evaluation metrics, leading to notable improvements in word error rate and speaker similarity. Our experiments show that DMDSpeech consistently surpasses prior state-of-the-art models in both naturalness and speaker similarity while being significantly faster. Moreover, our synthetic speech has a higher level of voice similarity to the prompt than the ground truth in both human evaluation and objective speaker similarity metric. This work highlights the potential of direct metric optimization in speech synthesis, allowing models to better align with human auditory preferences.</p>
         </div>
-		
+
+		<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+
+		  <h2 style="text-align: center">In-the-Wild Samples</h2>
+		  <br>
+		  <p class="lead">
+			This section contain samples sourced in the wild to show our model has great robustness and generalizability to various cases. <p style="font-weight:bold;"> Our model was only trained on LibriLight dataset and has not seen any of the prompt voice or language below</a>.
+		  </p>
+			<div class="table-responsive pt-3" tabindex="0">
+			<table class="table table-hover pt-2">
+				<thead>
+					<tr>
+					<th style="text-align: center">Cases</th>
+					<th style="text-align: center">Prompt</th>
+					<th style="text-align: center">Text</th>
+					<th style="text-align: center">DMDSpeech</th>
+					</tr>
+				</thead>
+				<tbody>
+				
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px"><div style="font-weight:bold;">Noisy Recording</div>(Sports Commentator)</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/wild/prompt/football.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">And here is our DMD Speech, and, oh my god! It can generalize to noisy commentating voice too, what a surprise! </td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/wild/dmdspeech/football.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px"><div style="font-weight:bold;">Screaming Voice</div>(Death Metal Growl)</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/wild/prompt/metal.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">This is DMD. It gets your voice deep. Why can it do metal growl? Why, can it do metal growl?</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/wild/dmdspeech/metal.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px"><div style="font-weight:bold;">Processed Voice</div>(StarCraft Protoss Advisor)</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/wild/prompt/protoss.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Executor, your model requires more distillation. Distillation complete. In taro DMD!</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/wild/dmdspeech/protoss.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px"><div style="font-weight:bold;">Non-English</div>(Speech-to-Speech Translation)</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/wild/prompt/korean.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">No. You only need to do it for 3 hours a day from Monday to Friday.</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/wild/dmdspeech/korean.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+
+				</tbody>
+			</table>
+			</div>
+			
+		</div>
+	      
 		<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 
 		  <h2 style="text-align: center">Zero-Shot TTS (LibriSpeech)</h2>
@@ -733,59 +786,6 @@
 		</div>
 		
       </div>
-
-		<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-
-		  <h2 style="text-align: center">In-the-Wild Samples</h2>
-		  <br>
-		  <p class="lead">
-			This section contain samples sourced in the wild to show our model has great robustness and generalizability to various cases. <p style="font-weight:bold;"> Our model was only trained on LibriLight dataset and has not seen any of the prompt voice or language below</a>.
-		  </p>
-			<div class="table-responsive pt-3" tabindex="0">
-			<table class="table table-hover pt-2">
-				<thead>
-					<tr>
-					<th style="text-align: center">Cases</th>
-					<th style="text-align: center">Prompt</th>
-					<th style="text-align: center">Text</th>
-					<th style="text-align: center">DMDSpeech</th>
-					</tr>
-				</thead>
-				<tbody>
-				
-					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px"><div style="font-weight:bold;">Noisy Recording</div>(Sports Commentator)</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/wild/prompt/football.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">And here is our DMD Speech, and, oh my god! It can generalize to noisy commentating voice too, what a surprise! </td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/wild/dmdspeech/football.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-					
-					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px"><div style="font-weight:bold;">Screaming Voice</div>(Death Metal Growl)</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/wild/prompt/metal.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">This is DMD. It gets your voice deep. Why can it do metal growl? Why, can it do metal growl?</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/wild/dmdspeech/metal.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-					
-					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px"><div style="font-weight:bold;">Processed Voice</div>(StarCraft Protoss Advisor)</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/wild/prompt/protoss.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Executor, your model requires more distillation. Distillation complete. In taro DMD!</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/wild/dmdspeech/protoss.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-					
-					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px"><div style="font-weight:bold;">Non-English</div>(Speech-to-Speech Translation)</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/wild/prompt/korean.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">No. You only need to do it for 3 hours a day from Monday to Friday.</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/wild/dmdspeech/korean.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-
-				</tbody>
-			</table>
-			</div>
-			
-		</div>
     
 		<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 
