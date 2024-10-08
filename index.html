@@ -85,6 +85,287 @@
 			</div>
 			
 		</div>
+		
+		<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+		
+
+
+		  <h2 style="text-align: center">Comparison to Previous SOTA</h2>
+		  <br>
+		  <p class="lead">
+			This section contain samples sourced from other SOTA model demo page for a comparison with our model. For each model, we compare different aspects. All samples are downsampled to 16 kHz for fair comparison. <p style="font-weight:bold;"> Our model was only trained on LibriLight dataset and has not seen any of the prompt voice below</a>.
+		  </p>
+		  <hr style="border-top: 3px dashed #bbb;">
+		  <h4>Comparison to DiTTo-TTS (Voice Clone)</h4>
+		  <p>
+			We compare our model to DiTTo-TTS for cloning the voice of vairous celebreities and fictional characters. The samples of DiTTo-TTS, prompts, and texts are sourced from its <a href="https://ditto-tts.github.io/">official demo page</a>.
+		  </p>
+			<div class="table-responsive pt-3" tabindex="0">
+			<table class="table table-hover pt-2">
+				<thead>
+					<tr>
+					<th style="text-align: center">Character</th>
+					<th style="text-align: center">Prompt</th>
+					<th style="text-align: center">DMDSpeech</th>
+					<th style="text-align: center">DiTTo-TTS</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">SpongeBob</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/spongebob.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/spongebob.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/spongebob.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+ 					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Rick (Rick and Morty)</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/rick.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/rick.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/rick.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+ 					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Optimus Prime</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/optimusprime.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/optimusprime.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/optimusprime.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+ 					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Mark Zuckerberg</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/zuck.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/zuck.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/zuck.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+ 					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Sherlock (Benedict Cumberbatch)</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/sherlock.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/sherlock.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/sherlock.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+ 					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Rachel McAdams</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/rachel.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/rachel.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/rachel.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+
+
+				</tbody>
+			</table>
+			</div>
+			
+		  <hr style="border-top: 3px dashed #bbb;">
+		  <h4>Comparison to NaturalSpeech 3 and DiTTo-TTS (Emotions)</h4>
+		  <p>
+			We compare our model to NaturalSpeech 3 and DiTTo-TTS for emotional speech. The samples of NaturalSpeech 3, DiTTo-TTS, prompts, and texts are sourced from <a href="https://ditto-tts.github.io/">DiTTo-TTS demo page</a>. The text synthesized is "why fades the lotus of the water" from LibriSpeech test set.
+		  </p>
+		  
+			<div class="table-responsive pt-3" tabindex="0">
+			<table class="table table-hover pt-2">
+				<thead>
+					<tr>
+					<th style="text-align: center">Emotion</th>
+					<th style="text-align: center">Prompt</th>
+					<th style="text-align: center">DMDSpeech</th>
+					<th style="text-align: center">DiTTo-TTS</th>
+					<th style="text-align: center">NaturalSpeech 3</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Neutral</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/prompt/netural.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dmdspeech/netural.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dittotts/netural.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/ns3/netural.wav">Your browser does not support the audio element.</audio></td>
+
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Calm</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/prompt/calm.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dmdspeech/calm.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dittotts/calm.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/ns3/calm.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Sad</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/prompt/sad.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dmdspeech/sad.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dittotts/sad.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/ns3/sad.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Angry</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/prompt/angry.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dmdspeech/angry.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dittotts/angry.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/ns3/angry.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Happy</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/prompt/happy.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dmdspeech/happy.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dittotts/happy.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/ns3/happy.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Surprised</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/prompt/surprised.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dmdspeech/surprised.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dittotts/surprised.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/ns3/surprised.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+					
+
+				</tbody>
+			</table>
+			</div>
+			
+		  <hr style="border-top: 3px dashed #bbb;">
+		  <h4>Comparison to Vall-E 2 (Continuation)</h4>
+		  <p>
+			We compare our model to Vall-E 2 for both cross-sentence synthesis and sentence continuation. Due to policy restriction, we were unable to obtain samples from the authors and conduct subjective evaluation in our study. The comparison here is for reference purpose only, and samples are taken from its <a href="https://www.microsoft.com/en-us/research/project/vall-e-x/vall-e-2/">official demo page</a>. All samples of Vall-E 2 are with GroupSize=1 as it is shown to have the best performance in the paper. 
+		  </p>
+		  
+			<div class="table-responsive pt-3" tabindex="0">
+			<table class="table table-hover pt-2">
+				<thead>
+					<tr>
+					<th style="text-align: center">Text</th>
+					<th style="text-align: center">Prompt (Prefix/Ref)</th>
+					<th style="text-align: center">DMDSpeech</th>
+					<th style="text-align: center">Vall-E 2</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">They moved thereafter cautiously about the hut, groping before and about them to find something to show that Warrenton had fulfilled his mission.</td>
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/prompt/809_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/prompt/809_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+						
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/dmdspeech/809_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/dmdspeech/809_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+						
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/valle2/809_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/valle2/809_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Number ten, fresh nelly is waiting on you, good night husband.</td>
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/prompt/1_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/prompt/1_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+						
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/dmdspeech/1_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/dmdspeech/1_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+						
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/valle2/1_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/valle2/1_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Instead of shoes, the old man wore boots with turnover tops and his blue coat had wide cuffs of gold braid.</td>
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/prompt/78_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/prompt/78_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+						
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/dmdspeech/78_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/dmdspeech/78_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+						
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/valle2/78_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/valle2/78_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+					</tr>
+					
+<!-- 					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Yea, his honourable worship is within. But he hath a godly minister or two with him, and likewise a leech.</td>
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/prompt/74_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/prompt/74_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+						
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/dmdspeech/74_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/dmdspeech/74_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+						
+						<td style="text-align: center">
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/valle2/74_conti.wav">Your browser does not support the audio element.</audio>
+							<br><hr>
+							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/valle2/74_cross.wav">Your browser does not support the audio element.</audio>
+						</td>
+					</tr>
+					 -->
+				</tbody>
+			</table>
+			</div>
+			
+		  <hr style="border-top: 3px dashed #bbb;">
+		  <h4>Comparison to StyleTTS 2 (Long-Form Generation)</h4>
+		  <p>
+			We compare our model to StyleTTS 2 for long-form generation. Our model with only 7 second of prompt speech can perform similarly well as SOTA single-speaker model trained on this particular speaker with 24 hours of data. The sample is taken from its <a href="https://styletts2.github.io/">official demo page</a>. 
+		  </p>
+		  
+			<div class="table-responsive pt-3" tabindex="0">
+			<table class="table table-hover pt-2">
+				<thead>
+					<tr>
+					<th style="text-align: center">Prompt for DMDSpeech</th>
+					<th style="text-align: center">DMDSpeech</th>
+					<th style="text-align: center">StyleTTS 2</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/styletts2/prompt_LJ.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/styletts2/dmdspeech.mp3">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/styletts2/styletts.mp3">Your browser does not support the audio element.</audio></td>
+					</tr
+				</tbody>
+			</table>
+			</div>
+		  
+		</div>
+		
+      </div>
+    
 	      
 		<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 
@@ -519,286 +800,6 @@
 		  <p class="small">* please scroll horizontally to see more samples (8 samples total).</p>
 		</div>
 
-		<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-		
-
-
-		  <h2 style="text-align: center">Comparison to Previous SOTA</h2>
-		  <br>
-		  <p class="lead">
-			This section contain samples sourced from other SOTA model demo page for a comparison with our model. For each model, we compare different aspects. All samples are downsampled to 16 kHz for fair comparison. <p style="font-weight:bold;"> Our model was only trained on LibriLight dataset and has not seen any of the prompt voice below</a>.
-		  </p>
-		  <hr style="border-top: 3px dashed #bbb;">
-		  <h4>Comparison to DiTTo-TTS (Voice Clone)</h4>
-		  <p>
-			We compare our model to DiTTo-TTS for cloning the voice of vairous celebreities and fictional characters. The samples of DiTTo-TTS, prompts, and texts are sourced from its <a href="https://ditto-tts.github.io/">official demo page</a>.
-		  </p>
-			<div class="table-responsive pt-3" tabindex="0">
-			<table class="table table-hover pt-2">
-				<thead>
-					<tr>
-					<th style="text-align: center">Character</th>
-					<th style="text-align: center">Prompt</th>
-					<th style="text-align: center">DMDSpeech</th>
-					<th style="text-align: center">DiTTo-TTS</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">SpongeBob</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/spongebob.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/spongebob.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/spongebob.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-					
- 					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Rick (Rick and Morty)</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/rick.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/rick.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/rick.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-					
- 					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Optimus Prime</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/optimusprime.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/optimusprime.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/optimusprime.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-					
- 					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Mark Zuckerberg</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/zuck.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/zuck.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/zuck.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-					
- 					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Sherlock (Benedict Cumberbatch)</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/sherlock.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/sherlock.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/sherlock.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-					
- 					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Rachel McAdams</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/rachel.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/rachel.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/rachel.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-
-
-				</tbody>
-			</table>
-			</div>
-			
-		  <hr style="border-top: 3px dashed #bbb;">
-		  <h4>Comparison to NaturalSpeech 3 and DiTTo-TTS (Emotions)</h4>
-		  <p>
-			We compare our model to NaturalSpeech 3 and DiTTo-TTS for emotional speech. The samples of NaturalSpeech 3, DiTTo-TTS, prompts, and texts are sourced from <a href="https://ditto-tts.github.io/">DiTTo-TTS demo page</a>. The text synthesized is "why fades the lotus of the water" from LibriSpeech test set.
-		  </p>
-		  
-			<div class="table-responsive pt-3" tabindex="0">
-			<table class="table table-hover pt-2">
-				<thead>
-					<tr>
-					<th style="text-align: center">Emotion</th>
-					<th style="text-align: center">Prompt</th>
-					<th style="text-align: center">DMDSpeech</th>
-					<th style="text-align: center">DiTTo-TTS</th>
-					<th style="text-align: center">NaturalSpeech 3</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Neutral</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/prompt/netural.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dmdspeech/netural.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dittotts/netural.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/ns3/netural.wav">Your browser does not support the audio element.</audio></td>
-
-					</tr>
-					
-					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Calm</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/prompt/calm.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dmdspeech/calm.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dittotts/calm.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/ns3/calm.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-
-					
-					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Sad</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/prompt/sad.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dmdspeech/sad.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dittotts/sad.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/ns3/sad.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-					
-					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Angry</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/prompt/angry.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dmdspeech/angry.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dittotts/angry.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/ns3/angry.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-					
-					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Happy</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/prompt/happy.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dmdspeech/happy.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dittotts/happy.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/ns3/happy.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-					
-					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 200px;min-width: 200px">Surprised</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/prompt/surprised.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dmdspeech/surprised.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/dittotts/surprised.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/ravdess/ns3/surprised.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-					
-					
-
-				</tbody>
-			</table>
-			</div>
-			
-		  <hr style="border-top: 3px dashed #bbb;">
-		  <h4>Comparison to Vall-E 2 (Continuation)</h4>
-		  <p>
-			We compare our model to Vall-E 2 for both cross-sentence synthesis and sentence continuation. Due to policy restriction, we were unable to obtain samples from the authors and conduct subjective evaluation in our study. The comparison here is for reference purpose only, and samples are taken from its <a href="https://www.microsoft.com/en-us/research/project/vall-e-x/vall-e-2/">official demo page</a>. All samples of Vall-E 2 are with GroupSize=1 as it is shown to have the best performance in the paper. 
-		  </p>
-		  
-			<div class="table-responsive pt-3" tabindex="0">
-			<table class="table table-hover pt-2">
-				<thead>
-					<tr>
-					<th style="text-align: center">Text</th>
-					<th style="text-align: center">Prompt (Prefix/Ref)</th>
-					<th style="text-align: center">DMDSpeech</th>
-					<th style="text-align: center">Vall-E 2</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">They moved thereafter cautiously about the hut, groping before and about them to find something to show that Warrenton had fulfilled his mission.</td>
-						<td style="text-align: center">
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/prompt/809_conti.wav">Your browser does not support the audio element.</audio>
-							<br><hr>
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/prompt/809_cross.wav">Your browser does not support the audio element.</audio>
-						</td>
-						
-						<td style="text-align: center">
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/dmdspeech/809_conti.wav">Your browser does not support the audio element.</audio>
-							<br><hr>
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/dmdspeech/809_cross.wav">Your browser does not support the audio element.</audio>
-						</td>
-						
-						<td style="text-align: center">
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/valle2/809_conti.wav">Your browser does not support the audio element.</audio>
-							<br><hr>
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/valle2/809_cross.wav">Your browser does not support the audio element.</audio>
-						</td>
-					</tr>
-					
-					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Number ten, fresh nelly is waiting on you, good night husband.</td>
-						<td style="text-align: center">
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/prompt/1_conti.wav">Your browser does not support the audio element.</audio>
-							<br><hr>
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/prompt/1_cross.wav">Your browser does not support the audio element.</audio>
-						</td>
-						
-						<td style="text-align: center">
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/dmdspeech/1_conti.wav">Your browser does not support the audio element.</audio>
-							<br><hr>
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/dmdspeech/1_cross.wav">Your browser does not support the audio element.</audio>
-						</td>
-						
-						<td style="text-align: center">
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/valle2/1_conti.wav">Your browser does not support the audio element.</audio>
-							<br><hr>
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/valle2/1_cross.wav">Your browser does not support the audio element.</audio>
-						</td>
-					</tr>
-					
-					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Instead of shoes, the old man wore boots with turnover tops and his blue coat had wide cuffs of gold braid.</td>
-						<td style="text-align: center">
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/prompt/78_conti.wav">Your browser does not support the audio element.</audio>
-							<br><hr>
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/prompt/78_cross.wav">Your browser does not support the audio element.</audio>
-						</td>
-						
-						<td style="text-align: center">
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/dmdspeech/78_conti.wav">Your browser does not support the audio element.</audio>
-							<br><hr>
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/dmdspeech/78_cross.wav">Your browser does not support the audio element.</audio>
-						</td>
-						
-						<td style="text-align: center">
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/valle2/78_conti.wav">Your browser does not support the audio element.</audio>
-							<br><hr>
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/valle2/78_cross.wav">Your browser does not support the audio element.</audio>
-						</td>
-					</tr>
-					
-<!-- 					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Yea, his honourable worship is within. But he hath a godly minister or two with him, and likewise a leech.</td>
-						<td style="text-align: center">
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/prompt/74_conti.wav">Your browser does not support the audio element.</audio>
-							<br><hr>
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/prompt/74_cross.wav">Your browser does not support the audio element.</audio>
-						</td>
-						
-						<td style="text-align: center">
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/dmdspeech/74_conti.wav">Your browser does not support the audio element.</audio>
-							<br><hr>
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/dmdspeech/74_cross.wav">Your browser does not support the audio element.</audio>
-						</td>
-						
-						<td style="text-align: center">
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/valle2/74_conti.wav">Your browser does not support the audio element.</audio>
-							<br><hr>
-							<audio controls="controls" style="width: 240px;"><source src="./samples/valle2/valle2/74_cross.wav">Your browser does not support the audio element.</audio>
-						</td>
-					</tr>
-					 -->
-				</tbody>
-			</table>
-			</div>
-			
-		  <hr style="border-top: 3px dashed #bbb;">
-		  <h4>Comparison to StyleTTS 2 (Long-Form Generation)</h4>
-		  <p>
-			We compare our model to StyleTTS 2 for long-form generation. Our model with only 7 second of prompt speech can perform similarly well as SOTA single-speaker model trained on this particular speaker with 24 hours of data. The sample is taken from its <a href="https://styletts2.github.io/">official demo page</a>. 
-		  </p>
-		  
-			<div class="table-responsive pt-3" tabindex="0">
-			<table class="table table-hover pt-2">
-				<thead>
-					<tr>
-					<th style="text-align: center">Prompt for DMDSpeech</th>
-					<th style="text-align: center">DMDSpeech</th>
-					<th style="text-align: center">StyleTTS 2</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/styletts2/prompt_LJ.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/styletts2/dmdspeech.mp3">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="./samples/styletts2/styletts.mp3">Your browser does not support the audio element.</audio></td>
-					</tr
-				</tbody>
-			</table>
-			</div>
-		  
-		</div>
-		
-      </div>
-    
 		<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 
 		  <h2 style="text-align: center">Ablation Study</h2>
