@@ -1200,12 +1200,12 @@
     <script src="./statics/jquery/jquery-3.7.1.slim.min.js"></script>
     <script src="./statics/bootstrap-5.2.3-dist/bootstrap.min.js"></script>
   </body>
-  <script>
-    $(function(){
+    <script src="./statics/jquery/jquery-3.7.1.slim.min.js"></script>
+    <script>
+	    $(function(){
         $("audio").on("play", function() {
             $("audio").not(this).each(function(index, audio) {
                 audio.pause();
-                audio.currentTime = 0;
             });
         });
     });
