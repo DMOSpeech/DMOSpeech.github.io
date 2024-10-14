@@ -43,69 +43,7 @@
 			This section contain samples sourced from other SOTA model demo page for a comparison with our model. For each model, we compare different aspects. All samples are downsampled to 16 kHz for fair comparison. <p style="font-weight:bold;"> Our model was only trained on LibriLight dataset and has not seen any of the prompt voice below</a>.
 		  </p>
 		  <hr style="border-top: 3px dashed #bbb;">
-		  <h4>Comparison to DiTTo-TTS (Voice Clone)</h4>
-		  <p>
-			We compare our model to DiTTo-TTS for cloning the voice of vairous celebreities and fictional characters. The samples of DiTTo-TTS, prompts, and texts are sourced from its <a href="https://ditto-tts.github.io/">official demo page</a>.
-		  </p>
-			<div class="table-responsive pt-3" tabindex="0">
-			<table class="table table-hover pt-2">
-				<thead>
-					<tr>
-					<th style="text-align: center">Character</th>
-					<th style="text-align: center">Prompt</th>
-					<th style="text-align: center">DMDSpeech</th>
-					<th style="text-align: center">DiTTo-TTS</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">SpongeBob</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/spongebob.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/spongebob.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/spongebob.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-					
- 					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Rick (Rick and Morty)</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/rick.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/rick.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/rick.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-					
- 					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Optimus Prime</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/optimusprime.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/optimusprime.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/optimusprime.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-					
- 					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Mark Zuckerberg</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/zuck.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/zuck.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/zuck.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-					
- 					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Sherlock (Benedict Cumberbatch)</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/sherlock.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/sherlock.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/sherlock.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-					
- 					<tr>
-						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Rachel McAdams</td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/rachel.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/rachel.wav">Your browser does not support the audio element.</audio></td>
-						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/rachel.wav">Your browser does not support the audio element.</audio></td>
-					</tr>
-
-
-				</tbody>
-			</table>
-			</div>
 			
-		  <hr style="border-top: 3px dashed #bbb;">
 		  <h4>Comparison to NaturalSpeech 3 and DiTTo-TTS (Emotions)</h4>
 		  <p>
 			We compare our model to NaturalSpeech 3 and DiTTo-TTS for emotional speech. The samples of NaturalSpeech 3, DiTTo-TTS, prompts, and texts are sourced from <a href="https://ditto-tts.github.io/">DiTTo-TTS demo page</a>. The text synthesized is "why fades the lotus of the water" from LibriSpeech test set.
@@ -180,6 +118,57 @@
 			</div>
 			
 		  <hr style="border-top: 3px dashed #bbb;">
+			
+		  <h4>Comparison to DiTTo-TTS (Voice Clone)</h4>
+		  <p>
+			We compare our model to DiTTo-TTS for cloning the voice of vairous fictional characters. The samples of DiTTo-TTS, prompts, and texts are sourced from its <a href="https://ditto-tts.github.io/">official demo page</a>.
+		  </p>
+			<div class="table-responsive pt-3" tabindex="0">
+			<table class="table table-hover pt-2">
+				<thead>
+					<tr>
+					<th style="text-align: center">Character</th>
+					<th style="text-align: center">Prompt</th>
+					<th style="text-align: center">DMDSpeech</th>
+					<th style="text-align: center">DiTTo-TTS</th>
+					</tr>
+				</thead>
+				<tbody>
+ 					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Rick (Rick and Morty)</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/rick.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/rick.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/rick.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+ 					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Optimus Prime</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/optimusprime.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/optimusprime.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/optimusprime.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">SpongeBob</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/spongebob.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/spongebob.wav">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/spongebob.wav">Your browser does not support the audio element.</audio></td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;vertical-align:middle;width: 240px;min-width: 240px">Morty</td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/prompt/morty">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dmdspeech/morty">Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 240px;"><source src="./samples/celeb/dittotts/morty">Your browser does not support the audio element.</audio></td>
+					</tr>
+
+
+				</tbody>
+			</table>
+			</div>
+			
+		  <hr style="border-top: 3px dashed #bbb;">
+			
 		  <h4>Comparison to Vall-E 2 (Continuation)</h4>
 		  <p>
 			We compare our model to Vall-E 2 for both cross-sentence synthesis and sentence continuation. Due to policy restriction, we were unable to obtain samples from the authors and conduct subjective evaluation in our study. The comparison here is for reference purpose only, and samples are taken from its <a href="https://www.microsoft.com/en-us/research/project/vall-e-x/vall-e-2/">official demo page</a>. All samples of Vall-E 2 are with GroupSize=1 as it is shown to have the best performance in the paper. 
