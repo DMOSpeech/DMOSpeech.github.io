@@ -1194,6 +1194,124 @@
 		  <p class="small">* please scroll horizontally to see more samples (8 samples total).</p>
 		</div>
 
+		<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" id="rebuttal">
+		  <h2 style="text-align: center">Samples for Rebuttal: Speech Reconstruction at Different Noise Levels</h2>
+		  <br>
+		  <p class="lead">
+			This section demonstrates the reconstruction quality of audio samples at different noise levels for both the teacher (before distillation) and student (after distillation) models. Audio samples are presented for two cases with four noise levels.
+			<p><strong>The teacher model produces intelligible speech only at low noise levels, while student model produces intelligible speech across all noise levels. This shows that only distilled student model can be optimized directly for evaluation metrics. </strong></p>
+			<p>For sample 1, the prompt lasts 6.3 seconds (ends at 0:06). For sample 2, the prompt lasts 4.8 seconds (ends at 0:05).</p>
+		  </p>
+		  
+		  <div class="table-responsive">
+			<table class="table table-sm">
+			  <thead>
+				<tr>
+				  <th scope="col" style="text-align: center;">Noise Level</th>
+				  <th scope="col" style="text-align: center;">Teacher Model (Sample 1)</th>
+				  <th scope="col" style="text-align: center;">Student Model (Sample 1)</th>
+				  <th scope="col" style="text-align: center;">Teacher Model (Sample 2)</th>
+				  <th scope="col" style="text-align: center;">Student Model (Sample 2)</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr>
+				  <td style="text-align: center;">Pure Noise (t=1.0)</td>
+				  <td style="text-align: center;">
+					<audio controls preload="none" style="width: 240px;">
+					  <source src="../samples/reconstructions/reconstruction_1/teacher_t_1_0.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td style="text-align: center;">
+					<audio controls preload="none" style="width: 240px;">
+					  <source src="../samples/reconstructions/reconstruction_1/student_t_1_0.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td style="text-align: center;">
+					<audio controls preload="none" style="width: 240px;">
+					  <source src="../samples/reconstructions/reconstruction_2/teacher_t_1_0.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td style="text-align: center;">
+					<audio controls preload="none" style="width: 240px;">
+					  <source src="../samples/reconstructions/reconstruction_2/student_t_1_0.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+				<tr>
+				  <td style="text-align: center;">High Noise (t=0.75)</td>
+				  <td style="text-align: center;">
+					<audio controls preload="none" style="width: 240px;">
+					  <source src="../samples/reconstructions/reconstruction_1/teacher_t_0_75.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td style="text-align: center;">
+					<audio controls preload="none" style="width: 240px;">
+					  <source src="../samples/reconstructions/reconstruction_1/student_t_0_75.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td style="text-align: center;">
+					<audio controls preload="none" style="width: 240px;">
+					  <source src="../samples/reconstructions/reconstruction_2/teacher_t_0_75.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td style="text-align: center;">
+					<audio controls preload="none" style="width: 240px;">
+					  <source src="../samples/reconstructions/reconstruction_2/student_t_0_75.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+				<tr>
+				  <td style="text-align: center;">Moderate Noise (t=0.5)</td>
+				  <td style="text-align: center;">
+					<audio controls preload="none" style="width: 240px;">
+					  <source src="../samples/reconstructions/reconstruction_1/teacher_t_0_5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td style="text-align: center;">
+					<audio controls preload="none" style="width: 240px;">
+					  <source src="../samples/reconstructions/reconstruction_1/student_t_0_5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td style="text-align: center;">
+					<audio controls preload="none" style="width: 240px;">
+					  <source src="../samples/reconstructions/reconstruction_2/teacher_t_0_5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td style="text-align: center;">
+					<audio controls preload="none" style="width: 240px;">
+					  <source src="../samples/reconstructions/reconstruction_2/student_t_0_5.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+				<tr>
+				  <td style="text-align: center;">Low Noise (t=0.25)</td>
+				  <td style="text-align: center;">
+					<audio controls preload="none" style="width: 240px;">
+					  <source src="../samples/reconstructions/reconstruction_1/teacher_t_0_25.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td style="text-align: center;">
+					<audio controls preload="none" style="width: 240px;">
+					  <source src="../samples/reconstructions/reconstruction_1/student_t_0_25.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td style="text-align: center;">
+					<audio controls preload="none" style="width: 240px;">
+					  <source src="../samples/reconstructions/reconstruction_2/teacher_t_0_25.wav" type="audio/wav">
+					</audio>
+				  </td>
+				  <td style="text-align: center;">
+					<audio controls preload="none" style="width: 240px;">
+					  <source src="../samples/reconstructions/reconstruction_2/student_t_0_25.wav" type="audio/wav">
+					</audio>
+				  </td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		</div>
+	    
 	</div>
   
     <script src="../statics/jquery/jquery-3.7.1.slim.min.js"></script>
