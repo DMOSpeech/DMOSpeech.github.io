@@ -1199,7 +1199,7 @@
 		  <br>
 		  <p class="lead">
 			This section demonstrates the reconstruction quality of audio samples at different noise levels for both the teacher (before distillation) and student (after distillation) models. Audio samples are presented for two cases with four noise levels.
-			<p><strong>The teacher model produces intelligible speech only at low noise levels, while student model produces intelligible speech across all noise levels. This shows that only distilled student model can be optimized directly for evaluation metrics. </strong></p>
+			<p><strong>The teacher model produces intelligible speech only at lower noise levels (t < 0.5), while student model produces intelligible speech across all noise levels. This shows that only distilled student model can be optimized directly with CTC and SV loss. </strong></p>
 			<p>For sample 1, the prompt lasts 6.3 seconds (ends at 0:06). For sample 2, the prompt lasts 4.8 seconds (ends at 0:05).</p>
 		  </p>
 		  
