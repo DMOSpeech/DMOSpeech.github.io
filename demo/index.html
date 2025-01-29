@@ -13,12 +13,12 @@
       <div class="row">
         <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 		<div style="text-align: center">
-			<h1>DMDSpeech:</h1>
-			<h3 style="text-align: center"> Distilled Diffusion Model Surpassing The Teacher in Zero-shot Speech Synthesis via Direct Metric Optimization<br>
+			<h1>DMOSpeech:</h1>
+			<h3 style="text-align: center"> Direct Metric Optimization via Distilled Diffusion Model in Zero-Shot Speech Synthesis<br>
 			</h3><br>
 		</div>
           <h3>Abstract</h3>
-          <p class="lead">Diffusion models have demonstrated significant potential in speech synthesis tasks, including text-to-speech (TTS) and voice cloning. However, their iterative denoising processes are inefficient and hinder the application of end-to-end optimization with perceptual metrics. In this paper, we propose a novel method of distilling TTS diffusion models with direct end-to-end evaluation metric optimization, achieving state-of-the-art performance. By incorporating Connectionist Temporal Classification (CTC) loss and Speaker Verification (SV) loss, our approach optimizes perceptual evaluation metrics, leading to notable improvements in word error rate and speaker similarity. Our experiments show that DMDSpeech consistently surpasses prior state-of-the-art models in both naturalness and speaker similarity while being significantly faster. Moreover, our synthetic speech has a higher level of voice similarity to the prompt than the ground truth in both human evaluation and objective speaker similarity metric. This work highlights the potential of direct metric optimization in speech synthesis, allowing models to better align with human auditory preferences.</p>
+          <p class="lead">Diffusion models have demonstrated significant potential in speech synthesis tasks, including text-to-speech (TTS) and voice cloning. However, their iterative denoising processes are computationally intensive, and previous distillation attempts have shown consistent quality degradation. Moreover, existing TTS approaches are limited by non-differentiable components or iterative sampling that prevent true end-to-end optimization with perceptual metrics. We introduce DMOSpeech, a distilled diffusion-based TTS model that uniquely achieves both faster inference and superior performance compared to its teacher model. By enabling direct gradient pathways to all model components, we demonstrate the first successful end-to-end optimization of differentiable metrics in TTS, incorporating Connectionist Temporal Classification (CTC) loss and Speaker Verification (SV) loss. Our comprehensive experiments, validated through extensive human evaluation, show significant improvements in naturalness, intelligibility, and speaker similarity while reducing inference time by orders of magnitude. This work establishes a new framework for aligning speech synthesis with human auditory preferences through direct metric optimization. </p>
         </div>
 		
 		<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" id="libri">
