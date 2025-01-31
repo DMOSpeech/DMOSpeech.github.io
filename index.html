@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>DMDSpeech Demo</title>
+    <title>DMOSpeech Demo</title>
     <link href="./statics/bootstrap-5.2.3-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="./statics/my.css" rel="stylesheet">
   </head>
@@ -13,12 +13,12 @@
       <div class="row">
         <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 		<div style="text-align: center">
-			<h1>DMDSpeech:</h1>
-			<h3 style="text-align: center"> Distilled Diffusion Model Surpassing The Teacher in Zero-shot Speech Synthesis via Direct Metric Optimization<br>
+			<h1>DMOSpeech:</h1>
+			<h3 style="text-align: center"> Direct Metric Optimization via Distilled Diffusion Model in Zero-Shot Speech Synthesis<br>
 			</h3><br>
 		</div>
           <h3>Abstract</h3>
-          <p class="lead">Diffusion models have demonstrated significant potential in speech synthesis tasks, including text-to-speech (TTS) and voice cloning. However, their iterative denoising processes are inefficient and hinder the application of end-to-end optimization with perceptual metrics. In this paper, we propose a novel method of distilling TTS diffusion models with direct end-to-end evaluation metric optimization, achieving state-of-the-art performance. By incorporating Connectionist Temporal Classification (CTC) loss and Speaker Verification (SV) loss, our approach optimizes perceptual evaluation metrics, leading to notable improvements in word error rate and speaker similarity. Our experiments show that DMDSpeech consistently surpasses prior state-of-the-art models in both naturalness and speaker similarity while being significantly faster. Moreover, our synthetic speech has a higher level of voice similarity to the prompt than the ground truth in both human evaluation and objective speaker similarity metric. This work highlights the potential of direct metric optimization in speech synthesis, allowing models to better align with human auditory preferences.</p>
+          <p class="lead">Diffusion models have demonstrated significant potential in speech synthesis tasks, including text-to-speech (TTS) and voice cloning. However, their iterative denoising processes are computationally intensive, and previous distillation attempts have shown consistent quality degradation. Moreover, existing TTS approaches are limited by non-differentiable components or iterative sampling that prevent true end-to-end optimization with perceptual metrics. We introduce DMOSpeech, a distilled diffusion-based TTS model that uniquely achieves both faster inference and superior performance compared to its teacher model. By enabling direct gradient pathways to all model components, we demonstrate the first successful end-to-end optimization of differentiable metrics in TTS, incorporating Connectionist Temporal Classification (CTC) loss and Speaker Verification (SV) loss. Our comprehensive experiments, validated through extensive human evaluation, show significant improvements in naturalness, intelligibility, and speaker similarity while reducing inference time by orders of magnitude. This work establishes a new framework for aligning speech synthesis with human auditory preferences through direct metric optimization. </p>
         </div>
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
     <h2 id="model-overview" style="text-align: center;">Model Overview</h2>
@@ -55,7 +55,7 @@
 					<tr>
 					<th style="text-align: center">Emotion</th>
 					<th style="text-align: center">Prompt</th>
-					<th style="text-align: center">DMDSpeech</th>
+					<th style="text-align: center">DMOSpeech</th>
 					<th style="text-align: center">DiTTo-TTS</th>
 					<th style="text-align: center">NaturalSpeech 3</th>
 					</tr>
@@ -129,7 +129,7 @@
 					<tr>
 					<th style="text-align: center">Character</th>
 					<th style="text-align: center">Prompt</th>
-					<th style="text-align: center">DMDSpeech</th>
+					<th style="text-align: center">DMOSpeech</th>
 					<th style="text-align: center">DiTTo-TTS</th>
 					</tr>
 				</thead>
@@ -180,7 +180,7 @@
 					<tr>
 					<th style="text-align: center">Text</th>
 					<th style="text-align: center">Prompt (Prefix/Ref)</th>
-					<th style="text-align: center">DMDSpeech</th>
+					<th style="text-align: center">DMOSpeech</th>
 					<th style="text-align: center">Vall-E 2</th>
 					</tr>
 				</thead>
@@ -283,8 +283,8 @@
 			<table class="table table-hover pt-2">
 				<thead>
 					<tr>
-					<th style="text-align: center">Prompt for DMDSpeech</th>
-					<th style="text-align: center">DMDSpeech</th>
+					<th style="text-align: center">Prompt for DMOSpeech</th>
+					<th style="text-align: center">DMOSpeech</th>
 					<th style="text-align: center">StyleTTS 2</th>
 					</tr>
 				</thead>
@@ -316,7 +316,7 @@
 					<th style="text-align: center">Cases</th>
 					<th style="text-align: center">Prompt</th>
 					<th style="text-align: center">Text</th>
-					<th style="text-align: center">DMDSpeech</th>
+					<th style="text-align: center">DMOSpeech</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -436,7 +436,7 @@
 				  </td>
 				</tr>
 				<tr>
-				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">DMDSpeech (Ours)</th>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">DMOSpeech (Ours)</th>
 				  <td>
 					<audio controls="" preload="none" style="width: 240px">
 					  <source src="./samples/libri/dmdspeech/6.wav" type="audio/wav">
@@ -795,13 +795,13 @@
 		  <p class="lead">
 			This section contain audio samples for our ablation study. The ablation of each model is as follows:
 			<ul class="lead">
-				<li><b>DMDSpeech (N=4)</b>: Our proposed model, DMDSpeech with 4 steps of sampling. </li>
+				<li><b>DMOSpeech (N=4)</b>: Our proposed model, DMOSpeech with 4 steps of sampling. </li>
 				<li><b>Teacher (N=128)</b>: The teacher diffusion model with 128 steps of sampling. </li>
 				<li><b>DMD 2 Only (N=1)</b>: The model trained with DMD 2 only with 1 step of sampling. </li>
 				<li><b>DMD 2 Only (N=4)</b>: The model trained with DMD 2 only with 4 steps of sampling. </li>
-				<li><b>SV loss Only</b>: The model trained with DMD 2 with 4 steps of sampling plus SV loss (i.e., DMDSpeech without CTC loss). </li>
-				<li><b>CTC loss Only</b>: The model trained with DMD 2 with 4 steps of sampling plus CTC loss (i.e., DMDSpeech without SV loss). </li>
-				<li><b>Batch size 16</b>: DMDSpeech trained with a batch size of 16 instead of 96. </li>
+				<li><b>SV loss Only</b>: The model trained with DMD 2 with 4 steps of sampling plus SV loss (i.e., DMOSpeech without CTC loss). </li>
+				<li><b>CTC loss Only</b>: The model trained with DMD 2 with 4 steps of sampling plus CTC loss (i.e., DMOSpeech without SV loss). </li>
+				<li><b>Batch size 16</b>: DMOSpeech trained with a batch size of 16 instead of 96. </li>
 
 			</ul>
 			
@@ -882,7 +882,7 @@
 				</tr>
 
 				<tr>
-				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">DMDSpeech (N=4)</th>
+				  <th scope="row" style="position: sticky; left: 0; z-index:10; opacity: 1.0; background-color: white;">DMOSpeech (N=4)</th>
 				  <td>
 					<audio controls="" preload="none" style="width: 240px">
 					  <source src="./samples/ab/dmdspeech/1.wav" type="audio/wav">
